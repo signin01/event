@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Feedback</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🎯 EventFeedback</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/events.html">Events</a></li>
+                <li><a href="/feedback.html">Feedback</a></li>
+                <li><a href="/view-feedback.html" class="active">View Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 style="text-align: center; margin: 40px 0;">📊 All Feedback</h1>
+        <div id="statsContainer" class="stats-container"></div>
+        <div id="feedbackList" class="feedback-list">
+            <div class="loading">Loading feedback from MongoDB Atlas...</div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sysslan IT Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/view-feedback.js"></script>
+</body>
+</html>
