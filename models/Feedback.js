@@ -36,7 +36,6 @@ const feedbackSchema = new mongoose.Schema({
     }
 });
 
-// Create index for better search performance
 feedbackSchema.index({ eventName: 1, createdAt: -1 });
 
 module.exports = mongoose.model('Feedback', feedbackSchema);
