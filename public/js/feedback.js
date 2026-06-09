@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Handle form submission
 document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -44,7 +45,7 @@ document.getElementById('feedbackForm').addEventListener('submit', async (e) => 
         const result = await response.json();
         
         if (result.success) {
-            messageDiv.innerHTML = '<div class="success-message">✅ ' + result.message + '</div>';
+            messageDiv.innerHTML = '<div class="success-message" style="padding: 10px; margin: 10px 0; border-radius: 5px; background: #d4edda; color: #155724;">✅ ' + result.message + '</div>';
             document.getElementById('feedbackForm').reset();
             setTimeout(() => {
                 window.location.href = '/view-feedback.html';
@@ -54,12 +55,13 @@ document.getElementById('feedbackForm').addEventListener('submit', async (e) => 
             if (result.errors) {
                 errorMsg += '<br>' + result.errors.join('<br>');
             }
-            messageDiv.innerHTML = '<div class="error-message">' + errorMsg + '</div>';
+            messageDiv.innerHTML = '<div class="error-message" style="padding: 10px; margin: 10px 0; border-radius: 5px; background: #f8d7da; color: #721c24;">' + errorMsg + '</div>';
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
         }
     } catch (error) {
-        messageDiv.innerHTML = '<div class="error-message">❌ Error submitting feedback. Please check your connection and try again.</div>';
+        console.error('Error:', error);
+        messageDiv.innerHTML = '<div class="error-message" style="padding: 10px; margin: 10px 0; border-radius: 5px; background: #f8d7da; color: #721c24;">❌ Error submitting feedback. Please check your connection and try again.</div>';
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
     }
